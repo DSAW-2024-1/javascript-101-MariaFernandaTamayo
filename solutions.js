@@ -1,47 +1,47 @@
-// Sum of Two Numbers
-function sum(a, b) {
+const sum = (a, b) => {
   if (typeof a !== 'number' || typeof b !== 'number') {
-    throw new Error('Los datos de entrada no son adecuados');
+    console.log("Los datos de entrada no son adecuados");
+    return undefined; // o return null;
   }
   return a + b;
-}
+};
 
-// Factorial of a Number
-function factorial(n) {
+const factorial = (n) => {
   if (typeof n !== 'number' || n < 0 || !Number.isInteger(n)) {
-    throw new Error('Los datos de entrada no son adecuados');
+    console.log("Los datos de entrada no son adecuados");
+    return undefined; // o return null;
   }
   if (n === 0 || n === 1) {
     return 1;
   }
-  let result = 1;
-  for (let i = 2; i <= n; i++) {
-    result *= i;
-  }
-  return result;
-}
+  return n * factorial(n - 1);
+};
 
-// Find the Largest Number
-function findLargest(arr) {
+const findLargest = (arr) => {
   if (!Array.isArray(arr) || arr.length === 0 || !arr.every((num) => typeof num === 'number')) {
-    throw new Error('Los datos de entrada no son adecuados');
+    console.log("Los datos de entrada no son adecuados");
+    return undefined; // o return null;
+  }
+  if (arr.some(isNaN)) {
+    console.log("Los datos de entrada no son adecuados");
+    return undefined; // o return null;
   }
   return Math.max(...arr);
-}
+};
 
-// Count Vowels in a String
-function countVowels(str) {
+const countVowels = (str) => {
   if (typeof str !== 'string') {
-    throw new Error('Los datos de entrada no son adecuados');
+    console.log("Los datos de entrada no son adecuados");
+    return undefined; // o return null;
   }
   const vowels = 'aeiouAEIOU';
   return str.split('').filter(char => vowels.includes(char)).length;
-}
+};
 
-// Check if a Number is Prime
-function isPrime(n) {
+const isPrime = (n) => {
   if (typeof n !== 'number' || n <= 1 || !Number.isInteger(n)) {
-    throw new Error('Los datos de entrada no son adecuados');
+    console.log("Los datos de entrada no son adecuados");
+    return undefined; // o return null;
   }
   for (let i = 2; i <= Math.sqrt(n); i++) {
     if (n % i === 0) {
@@ -49,12 +49,13 @@ function isPrime(n) {
     }
   }
   return true;
-}
+};
 
+// Exportar las funciones
 module.exports = {
   sum,
   factorial,
   findLargest,
   countVowels,
-  isPrime,
+  isPrime
 };
