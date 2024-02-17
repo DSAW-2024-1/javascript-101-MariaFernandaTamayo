@@ -22,6 +22,10 @@ const findLargest = (arr) => {
     console.log("Los datos de entrada no son adecuados");
     return;
   }
+  if (arr.some(isNaN)) {
+    console.log("Los datos de entrada no son adecuados");
+    return;
+  }
   return Math.max(...arr);
 };
 
@@ -46,10 +50,3 @@ const isPrime = (n) => {
   }
   return true;
 };
-
-// Ejemplos de uso
-console.log(sum(3, 5)); // Output: 8
-console.log(factorial(5)); // Output: 120
-console.log(findLargest([3, 5, 10, 2])); // Output: 10
-console.log(countVowels("Hello, World!")); // Output: 3
-console.log(isPrime(7)); // Output: true
